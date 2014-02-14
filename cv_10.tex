@@ -1,0 +1,210 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Friggeri Resume/CV
+% XeLaTeX Template
+% Version 1.0 (5/5/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Adrien Friggeri (adrien@friggeri.net)
+% https://github.com/afriggeri/CV
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Important notes:
+% This template needs to be compiled with XeLaTeX and the bibliography, if used,
+% needs to be compiled with biber rather than bibtex.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[]{friggeri-cv} % Add 'print' as an option into the square bracket to remove colors from this template for printing
+
+\addbibresource{bibliography.bib} % Specify the bibliography file to include publications
+
+\begin{document}
+
+\header{philipp}{bayer}{bioinformatician} % Your name and current job title/field
+
+%----------------------------------------------------------------------------------------
+%	SIDEBAR SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{aside} % In the aside, each new line forces a line break
+\section{contact}
+21/49 Maranda St.
+Shailer Park, QLD 4128
+Australia
+~
++61 435 626 108
+~
+\href{mailto:philippbay@gmail.com}{philippbay@gmail.com}
+\href{http://twitter.com/philippbayer}{twitter.com/philippbayer}
+\href{http://github.com/drsnuggles}{github.com/drsnuggles}
+\section{languages}
+German: mother tongue
+English: fluent
+French \& Japanese: advanced
+\section{programming}
+Python
+Go, Perl, Bash, Java
+Ruby on Rails, HTML
+\end{aside}
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\section{education}
+
+\begin{entrylist}
+%------------------------------------------------
+\entry
+{2012--current}
+{PhD {\normalfont Applied Bioinformatics}}
+{University of Queensland, Brisbane}
+{Working in the applied bioinformatics group on the use of genotyping by sequencing to improve the genome assembly of canola}
+%------------------------------------------------
+\entry
+{2010--2012}
+{Master {\normalfont of IT}}
+{Bond University, Gold Coast}
+{Graduated with Honours}
+%------------------------------------------------
+\entry
+{2006--2009}
+{Bachelor of Science {\normalfont Biology}}
+{University of Münster, Germany}
+{Thesis: Analysis of splicing in two populations of marine plants
+using bioinformatic approaches}
+\end{entrylist}
+
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+
+\section{experience}
+
+\begin{entrylist}
+\entry
+{2013--Now}
+{Software Carpentry instructor}
+{Australia}
+{Certified Software Carpentry instructor. Software Carpentry is a Mozilla/Alfred P. Sloan Foundation funded non-profit organization which teaches best programming practices (Python, reproducible research, version control etc.) in bootcamps to scientists around the world}
+%------------------------------------------------
+\entry
+{2012--2012}
+{Research exchange {\normalfont at Bayer CropScience}}
+{Ghent, Belgium}
+{For 4 weeks, worked on the assembly of the \textit{Brassica napus} genome. Learned to work in a corporate science environment}
+
+%------------------------------------------------
+\entry
+{2011--Now}
+{Co-founder openSNP.org}
+{Germany/Australia}
+{A project for costumers of genotyping companies like 23andMe to share their data with scientists around the world, for free.\\
+Responsibilities:
+\begin{itemize}
+\item Wrote and still maintain the site's Ruby on Rails code-base
+\item Interact with the community of 800-1500 users
+\item System administration of the site's server
+\end{itemize}}
+
+%------------------------------------------------
+
+%------------------------------------------------
+\end{entrylist}
+
+%----------------------------------------------------------------------------------------
+%	AWARDS SECTION
+%----------------------------------------------------------------------------------------
+
+\section{awards}
+
+\begin{entrylist}
+%------------------------------------------------
+\entry
+{2011--2014}
+{Postgraduate Scholarship}
+{University of Queensland}
+{Working on genotyping by sequencing}
+%------------------------------------------------
+\entry
+{2012}
+{First place in PLOS/Mendeley Binary Challenge}
+{Won with openSNP.org}
+{Won first price in a competition aimed towards the advancement of open science}
+%------------------------------------------------
+\entry
+{2009-2011}
+{Master IT}
+{Bond University}
+{5x Top of class,  3x Vice-Chancellor's List for Academic Excellence, 1x IT Award Academic Excellence. Graduated with honours. Recipient of John Oglethorpe Medal for highest GPA of all IT students graduating that semester}
+\end{entrylist}
+
+
+%----------------------------------------------------------------------------------------
+%	COMMUNICATION SKILLS SECTION
+%----------------------------------------------------------------------------------------
+\newpage
+\section{communication skills}
+
+\begin{entrylist}
+\entry
+{2013}
+{Poster}
+{Plant and animal genome conference, San Diego}
+{Genome Assembly Validation and Trait Association using Skim Based Genotyping by Sequencing in Canola}
+%------------------------------------------------
+\entry
+{2013--2014}
+{Software Carpentry}
+{Adelaide/Melbourne}
+{Assisted Software Carpentry bootcamp in Adelaide, taught basic to intermediate Python as well as documentation and assisted at bootcamp in Melbourne. Currently organizing a bootcamp in Brisbane in July 2014.}
+%------------------------------------------------
+\entry
+{2012}
+{Presentation}
+{28th Chaos Communication Congress, Berlin}
+{Presented the work on openSNP, talked about the future of personal genomics and privacy implications}
+%------------------------------------------------
+\entry
+{2009--2011}
+{Tutoring}
+{Bond University}
+{Tutored students in Intro to Programming (Java), Database Management (Oracle/MySQL) and Networks \& Applications, held several all-day refresher courses before exams}
+\end{entrylist}
+
+%----------------------------------------------------------------------------------------
+%	INTERESTS SECTION
+%----------------------------------------------------------------------------------------
+
+\section{interests}
+
+\textbf{professional:} genotyping by sequencing, genome refinement, programming languages, machine learning, teaching \\ \textbf{personal:} literature, running, travel
+
+%----------------------------------------------------------------------------------------
+%	PUBLICATIONS SECTION
+%----------------------------------------------------------------------------------------
+
+\section{publications}
+
+\printbibsection{article}{articles in peer-reviewed journals} % Print all articles from the bibliography
+
+%\printbibsection{book}{books} % Print all books from the bibliography
+
+%\begin{refsection} % This is a custom heading for those references marked as "inproceedings" but not containing "keyword=france"
+%\nocite{*}
+%\printbibliography[sorting=chronological, type=inproceedings, title={international peer-reviewed conferences/proceedings}, notkeyword={france}, heading=subbibliography]
+%\end{refsection}
+
+%\begin{refsection} % This is a custom heading for those references marked as "inproceedings" and containing "keyword=france"
+%\nocite{*}
+%\printbibliography[sorting=chronological, type=inproceedings, title={local peer-reviewed conferences/proceedings}, keyword={france}, heading=subbibliography]
+%\end{refsection}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
