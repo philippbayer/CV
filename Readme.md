@@ -11,9 +11,9 @@ CV is probably not up-to-date.
 biber for the citations, XeLaTeX for compiling, Source Sans Pro for the font.
 
 There's a Fedora repository for biber at http://repos.fedorapeople.org/repos/mef/biber/.
+If you are using Fedora 20, you need to downgrade biber to 1.8 using this repo: http://copr.fedoraproject.org/coprs/cbm/biber-1.8/
 
 XeLaTeX should work by installing the texlive distribution.
-
 
 Original README:
 
