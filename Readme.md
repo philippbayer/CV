@@ -10,10 +10,36 @@ CV is probably not up-to-date.
 
 biber for the citations, XeLaTeX for compiling, Source Sans Pro for the font.
 
+## on Fedora
+
 There's a Fedora repository for biber at http://repos.fedorapeople.org/repos/mef/biber/.
 If you are using Fedora 20, you need to downgrade biber to 1.8 using this repo: http://copr.fedoraproject.org/coprs/cbm/biber-1.8/
 
 XeLaTeX should work by installing the texlive distribution.
+
+## on Ubuntu
+
+(Instructions courtesy of [Steven Hall/hallzy](https://github.com/hallzy) from [this issue](https://github.com/philippbayer/CV/issues/1#issuecomment-104332627)) 
+
+For Ubuntu 12.04 LTS I did:
+
+    sudo add-apt-repository ppa:texlive-backports/ppa
+    sudo apt-get install texlive-full
+
+Note that texlive-full takes a long time to install (I am talking a few hours). It is possible that you may be able to get it working with several smaller latex packages but I just went ahead and did everything.
+
+Once this is done, we need the fonts... For the sake of making this simpler, I have a [folder in my repo](https://github.com/hallzy/dotfiles/tree/master/.fonts) with all the fonts, and also [this folder](https://github.com/hallzy/dotfiles/tree/master/texmf/fonts/opentype) you need... copy all those to a similarly placed and named folder.
+
+Now also get [these fonts](https://github.com/hallzy/dotfiles/tree/master/.latex-unicode-math) and then do this (assuming ~/.latex-unicode-math is the folder you put these last fonts into:
+
+    sudo mkdir -p /usr/share/texlive/texmf-dist/tex/latex/unicode-math/
+    cd ~/.latex-unicode-math
+    sudo cp * /usr/share/texlive/texmf-dist/tex/latex/unicode-math/
+
+    sudo fc-cache -f -v
+    sudo -H mktexlsr
+
+I believe I also needed to install php5-cli to successfully do the above, but if not then don't bother.
 
 Original README:
 
