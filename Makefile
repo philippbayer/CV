@@ -9,3 +9,6 @@ fix_bib: bibliography.bib
 
 print_cites: bibliography.bib
 	grep '^@' bibliography.bib | sed 's/@article/\\cite/' | sed 's/@inproceedings/\\cite/' | sed 's/@incollection/\\cite/' | sed 's/,/}/'
+
+clean:
+	rm -f *aux *bbl *bcf *blg *log *out *run.xml

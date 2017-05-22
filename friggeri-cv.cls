@@ -143,7 +143,7 @@
   #1&\parbox[t]{11.8cm}{%
     \textbf{#2}%
     \hfill%
-    {\footnotesize\addfontfeature{Color=lightgray} #3}\\%
+    {\footnotesize\addfontfeature{Color=darkgray} #3}\\%
     #4\vspace{\parsep}%
   }\\}
 
@@ -180,19 +180,19 @@
 \setlength{\leftskip}{0.2in}
 \setlength{\parskip}{4pt}
 
-\DeclareFieldFormat[article]{title}{#1\par}
+%\DeclareFieldFormat[article]{title}{#1\par}
 \DeclareFieldFormat[book]{title}{#1\par}
 \DeclareFieldFormat[inproceedings]{title}{#1\par}
 \DeclareFieldFormat[misc]{title}{#1\par}
 \DeclareFieldFormat[report]{title}{#1\par}
 
 \DeclareBibliographyDriver{article}{%
-  \par%
   \printnames{author}%
-  \par%
+  \setunit{\space}%
   \printfield{title}%
-  \par%
-  \newblock%
+  \setunit{\space}%
+  \printfield{journal}%
+  \setunit{\space}%
   {%
     \footnotesize\addfontfeature{Color=darkgray}\itshape%
     \usebibmacro{journal+issuetitle}%
@@ -201,13 +201,11 @@
     \newunit%
     \printlist{publisher}%
     \setunit*{\addcomma\space}%
-    \printfield{year}%
     \newunit%
   }
-  \par%
-  \printfield{note}%
   \par\vspace{0.3\baselineskip}
 }
+    %\printfield{year}%
 
 \DeclareBibliographyDriver{book}{%
   \printfield{title}%
