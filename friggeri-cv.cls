@@ -40,8 +40,8 @@
   \colorlet{fillheader}{gray}
   \colorlet{header}{white}
 \fi
-\colorlet{textcolor}{gray}
-\colorlet{headercolor}{gray}
+\colorlet{textcolor}{black}
+\colorlet{headercolor}{black}
 
 %%%%%%%%%
 % Fonts %
@@ -176,6 +176,10 @@
 
 \RequirePackage[style=verbose, maxnames=99, sorting=ydnt]{biblatex}
 
+\setlength{\parindent}{-0.2in}
+\setlength{\leftskip}{0.2in}
+\setlength{\parskip}{4pt}
+
 \DeclareFieldFormat[article]{title}{#1\par}
 \DeclareFieldFormat[book]{title}{#1\par}
 \DeclareFieldFormat[inproceedings]{title}{#1\par}
@@ -183,13 +187,14 @@
 \DeclareFieldFormat[report]{title}{#1\par}
 
 \DeclareBibliographyDriver{article}{%
-  \printfield{title}%
-  \newblock%
+  \par%
   \printnames{author}%
+  \par%
+  \printfield{title}%
   \par%
   \newblock%
   {%
-    \footnotesize\addfontfeature{Color=lightgray}\itshape%
+    \footnotesize\addfontfeature{Color=darkgray}\itshape%
     \usebibmacro{journal+issuetitle}%
     \setunit{\space}%
     \printfield{pages}%
@@ -199,6 +204,8 @@
     \printfield{year}%
     \newunit%
   }
+  \par%
+  \printfield{note}%
   \par\vspace{0.3\baselineskip}
 }
 
@@ -209,7 +216,7 @@
   \par%
   \newblock%
   {%
-    \footnotesize\addfontfeature{Color=lightgray}\itshape%
+    \footnotesize\addfontfeature{Color=darkgray}\itshape%
     \printlist{publisher}%
     \setunit*{\addcomma\space}%
     \printfield{note}%
@@ -230,7 +237,7 @@
   \par%
   \newblock%
   {%
-    \footnotesize\addfontfeature{Color=lightgray}%
+    \footnotesize\addfontfeature{Color=darkgray}%
     \printfield{booktitle}%
     \setunit{\addcomma\space}%
     \printfield{year}%
@@ -248,7 +255,7 @@
   \par%
   \newblock%
   {%
-    \footnotesize\addfontfeature{Color=lightgray}\itshape%
+    \footnotesize\addfontfeature{Color=darkgray}\itshape%
     \printfield{booktitle}%
     \setunit*{\addcomma\space}%
     \printfield{note}%
@@ -268,7 +275,7 @@
   \par%
   \newblock%
   {%
-    \footnotesize\addfontfeature{Color=lightgray}\itshape%
+    \footnotesize\addfontfeature{Color=darkgray}\itshape%
     \printfield{type}%
     \setunit{\space}%
     \printfield{number}%
@@ -282,7 +289,7 @@
 % taken from https://tex.stackexchange.com/questions/327316/updating-friggeris-cv-making-it-work-with-texlive-2015-and-up-too-many-erro?noredirect=1#comment801069_327316
 
 \DeclareNameFormat{author}{%
-  \small\addfontfeature{Color=lightgray}%
+  \small\addfontfeature{Color=darkgray}%
   \ifgiveninits
     {\usebibmacro{name:given-family}
       {\namepartfamily}
