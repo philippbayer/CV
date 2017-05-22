@@ -279,20 +279,31 @@
   \par\vspace{0.3\baselineskip}
 }
 
+% taken from https://tex.stackexchange.com/questions/327316/updating-friggeris-cv-making-it-work-with-texlive-2015-and-up-too-many-erro?noredirect=1#comment801069_327316
+
 \DeclareNameFormat{author}{%
   \small\addfontfeature{Color=lightgray}%
-  \ifblank{#3}{}{#3\space}#1%
-  \ifthenelse{\value{listcount}<\value{liststop}}
-    {\addcomma\space}
-    {}%
-}
+  \ifgiveninits
+    {\usebibmacro{name:given-family}
+      {\namepartfamily}
+      {\namepartgiveni}
+      {\namepartprefix}
+      {\namepartsuffix}}
+    {\usebibmacro{name:given-family}
+      {\namepartfamily}
+      {\namepartgiven}
+      {\namepartprefix}
+      {\namepartsuffix}}%
+  \usebibmacro{name:andothers}}
 
-\newcommand{\printbibsection}[2]{
-  \begin{refsection}
-    \nocite{*}
-    \printbibliography[sorting=chronological, type={#1}, title={#2}, heading=subbibliography]
-  \end{refsection}
-}
+\newcommand{\printbibsection}[2]{%
+  \begin{refsection}%
+    \newrefcontext[sorting=chronological]%
+    \nocite{*}%
+    \printbibliography[type={#1}, title={#2}, heading=subbibliography]%
+  \end{refsection}}
+
+% end of copied piece
 
 \DeclareSortingScheme{chronological}{
   \sort[direction=descending]{\field{year}}
