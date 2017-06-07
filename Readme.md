@@ -6,6 +6,9 @@ I replaced the non-free font by Source Sans Pro, which you can get from here: ht
 
 CV is probably not up-to-date.
 
+
+If you want to use it for yourself, there's a makeauthorbold command in friggeri.cls which you'd have to replace with part of your name.
+
 # Requirements
 
 biber for the citations, XeLaTeX for compiling, Source Sans Pro for the font.

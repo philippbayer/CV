@@ -203,6 +203,7 @@
     \setunit*{\addcomma\space}%
     \newunit%
   }
+  \printfield{note}%
   \par\vspace{0.3\baselineskip}
 }
     %\printfield{year}%
@@ -309,6 +310,26 @@
   \end{refsection}}
 
 % end of copied piece
+
+% Following taken from https://tex.stackexchange.com/a/328286
+\newcommand{\makeauthorbold}[1]{%
+  \DeclareNameFormat{author}{%
+    \ifthenelse{\value{listcount}=1}
+    {%
+      {\expandafter\ifstrequal\expandafter{\namepartfamily}{#1}{\mkbibbold{\namepartfamily\addcomma\addspace \namepartgiveni}}{\namepartfamily\addcomma\addspace \namepartgiveni}}
+      %
+    }{\ifnumless{\value{listcount}}{\value{liststop}}
+        {\expandafter\ifstrequal\expandafter{\namepartfamily}{#1}{\mkbibbold{\addcomma\addspace \namepartfamily\addcomma\addspace \namepartgiveni}}{\addcomma\addspace \namepartfamily\addcomma\addspace \namepartgiveni}}
+        {\expandafter\ifstrequal\expandafter{\namepartfamily}{#1}{\mkbibbold{\addcomma\addspace \namepartfamily\addcomma\addspace \namepartgiveni\addcomma\isdot}}{\addcomma\addspace \namepartfamily\addcomma\addspace \namepartgiveni\addcomma\isdot}}%
+      }
+    \ifthenelse{\value{listcount}<\value{liststop}}
+    {\addcomma\space}
+  }
+}
+\makeauthorbold{Bayer}
+
+% end of copied piece
+
 
 \DeclareSortingScheme{chronological}{
   \sort[direction=descending]{\field{year}}
