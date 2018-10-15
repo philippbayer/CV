@@ -5,3 +5,6 @@ all: cv_10.tex
 
 clean:
 	rm -f *aux *bbl *bcf *blg *log *out *run.xml
+
+html: bibliography.bib
+	bibtex2html -d -r -nodoi -nolinks < bibliography.bib | iconv -f utf8 -t ascii//TRANSLIT  > bibliography.html
