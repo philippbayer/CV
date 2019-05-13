@@ -21,7 +21,22 @@ If you are using Fedora 20, you may need to downgrade biber to 1.8 using this re
 
 XeLaTeX should work by installing the texlive distribution.
 
-## on Ubuntu
+## on Ubuntu 18:
+
+To get the font:
+
+    wget https://github.com/adobe-fonts/source-sans-pro/releases/download/2.045R-ro%2F1.095R-it/source-sans-pro-2.045R-ro-1.095R-it.zip
+    unzip source-sans-pro-2.045R-ro-1.095R-it.zip
+    cd source-sans-pro-2.045R-ro-1.095R-it/
+    mkdir -p ~/.fonts/
+    cp OTF/*otf ~/.fonts/
+    fc-cache -f -v
+
+For biber and XeLaTeX:
+
+    sudo apt-get install texlive-xetex texlive-bibtex-extra biber
+
+## on Ubuntu 12.04
 
 (Instructions courtesy of [Steven Hall/hallzy](https://github.com/hallzy) from [this issue](https://github.com/philippbayer/CV/issues/1#issuecomment-104332627)) 
 
