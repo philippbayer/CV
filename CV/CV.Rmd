@@ -29,25 +29,27 @@ I use computers and large data sets to answer biological questions, especially i
 ```{r}
 library(tibble)
 tribble(
-  ~ Degree, ~ Year, ~ Institution, ~ Where,
-  "PhD", "2012-2016", "University of Queensland", "Brisbane, Australia",
-  "Master of IT", "2010-2012", "Bond University", "Gold Coast, Australia",
-  "Bachelor of Life Sciences", "2006-2009", "University of Muenster", "Muenster, Germany"
+  ~ Degree, ~ Year, ~ Institution, ~loc, ~ details,
+  "PhD", "2012-2016", "University of Queensland", "Brisbane, Australia", list('Pure bioinformatics PhD in the Edwards group', 'Developed computational pipeline SkimGBS for cheaper genotyping', 'Worked extensively with industry (Bayer CropScience, later BASF)'), 
+  "Master of IT", "2010-2012", "Bond University", "Gold Coast, Australia", list('5x Top of class, 3x Vice-Chancellor List of Academic Excellence, 1x IT Award Academic Excellence', 'Graduated with High Distinction. John Oglethorpe Medal for highest GPA of all IT students graduating'),
+  "Bachelor of Life Sciences", "2006-2009", "University of Muenster", "Muenster, Germany", list('Studied general life sciences with a focus on microbiology', 'In my final project I worked on EST-based differential gene expression in seagrasses'),
 ) %>% 
-  detailed_entries(Degree, Year, Institution, Where)
+  detailed_entries(Degree, Year, Institution, loc, details)
 ```
 
 # Employment
 
 ```{r}
 tribble(
-  ~Year, ~Role, ~Location, ~Details,
-  "2021-2023", "DECRA Fellow", "Perth, UWA", "My first step towards an independent lab with funding for the first PhD-student primarily supervised by me and with AUSD 448,781 in government and AUSD 418,772 UWA funding. I am modeling mechanisms of gene loss and birth in crops to learn where new genes come from, and how to avoid loss of agronomically important genes.",
-  "2017-2020", "Forrest Fellow", "Perth, UWA", "One of three inaugural Forrest Fellows. Continued work on genomics of complex plants with Forrest Foundation support. Supervised three PhD students and four MSc students to completion.",
-  "2015-2017", "Postdoctoral researcher", "Perth, UWA", "Edwards Lab. Researched genetics of complex plants with a focus on canola and wheat. Worked closely with industry partners to improve their breeding programs. Supervised two interns, co-supervised four PhD students and one MSc student, system administrator for the local computational infrastructure and group data manager.",
+  ~Year, ~Role, ~Location, ~Institution, ~Details,
+  "2021-2023", "DECRA Fellow", "Perth", "UWA", list("My first step towards an independent lab with with AUSD 448k1 in government and AUSD 418k UWA funding", "I am modeling mechanisms of gene loss and birth in crops to learn where new genes come from, and how to avoid loss of agronomically important genes."),
+  "2017-2020", "Forrest Fellow", "Perth", "UWA", list("One of three inaugural Forrest Fellows", "Work on genomics of complex plants with Forrest Foundation support", "Supervised three PhD students and four MSc students to completion."),
+  "2015-2017", "Postdoctoral researcher", "Perth", "UWA", list("Researched genetics of complex plants with a focus on canola and wheat in Edwards lab", "Worked closely with industry partners to improve their breeding programs", " Supervised two interns, co-supervised four PhD students and one MSc student to completion"),
 ) %>% 
-  detailed_entries(when=Year, with=Role,  where=Location, what=Details)
+  detailed_entries(Role, Year, Institution,  Location, Details)
 ```
+
+\newpage
 
 
 # Experience
@@ -56,17 +58,17 @@ tribble(
 tribble(
   ~Year, ~Role, ~Organisation, ~Details,
   "2021", "Host, ABACBS conference Perth Hub", "Perth", "Hosted the Perth hub of the yearly ABACBS conference, chaired genomics session",
-  "2021-Current", "Member, Scientific Advisory Panel Machine Learning", "ARDC", "Member of the scientific advisory panel for ongoing machine learning projects supported by the ARDC.",
-  "2012-2018", "Research Collaboration with Bayer CropScience, later BASF", "Ghent, Belgium", "Continued collaboration with Bayer CropScience on their plant breeding projects.",
-  "2011-Current", "Co-founder openSNP.org", "Germany/Australia", "A project for customers of genotyping companies like 23andMe to share their data with scientists around the world, for free. Partially wrote and  maintain the siteʼs uby on Rails code-base, interact and manage with the community of 5000 users, administration of the siteʼs servers, and supervision of contributors",
-  "2013-Current", "Certified Carpentries Instructor", "Australia", "Certified Software Carpentry and Data Carpentry instructor. The Carpentries is a non-profit organization teaching programming to scientists around the world.",
-   "2018", "Research Bazaar Organising Committee", "UWA, Perth",  "ResBaz is a world-wide three-day festival promoting digital literacy. As member of the organising committee I searched for helpers and teachers, drafted the timeplan,designed the web page, raised funding, succeeded in getting government MP to hold the keynote",
-    "2017-Current", "Hacky Hour Funder", "UWA, Perth", "Founded the Hacky Hour at UWA, a weekly get-together of researchers and staff working with programming and data, doubles as a help-desk for students with programming problems.",
-    "2017-2019", "Mozilla Open Science Leadership Mentor", "Online", "Mentored open source programmers and researchers on how to streamline and grow open source and open science projects under the umbrella of Mozilla",
-    "2016-2019", "EMBLR-ABR Head of Nodes member, Open Science Special Interest Group member", "UWA, Perth", "EMBL-ABR was an Australian-wide network supporting the technical needs of life sciences researchers.",
-     "2016-2017", "COMBINE WA Representative", "UWA, Perth", "COMBINE is the student and early career researcher subcommittee of the Australian Bioinformatics and Computational Biology Society (ABACBS). As the local representative I organise or help organise workshops and regular networking events."
+  "2021-Now", "Member, Scientific Advisory Panel Machine Learning", "ARDC", "Member of the scientific advisory panel for ongoing machine learning projects supported by the ARDC.",
+  "2012-2018", "Research Collaboration with Bayer CropScience/BASF", "Ghent, Belgium", "Continued collaboration with Bayer CropScience on their plant breeding projects",
+  "2011-Now", "Co-founder openSNP.org", "Germany/Australia", "Partially wrote and maintain the Ruby on Rails code-base",
+  "2013-Now", "Certified Carpentries Instructor", "Australia", "Certified Software Carpentry and Data Carpentry instructor",
+   "2018", "Research Bazaar Organising Committee", "UWA, Perth",  "ResBaz is a world-wide three-day festival promoting digital literacy. I organised teachers, drafted the timeplan, designed the web page, raised funding, invited keynote speakers",
+    "2017-Now", "Hacky Hour Founder", "UWA, Perth", "Founded a weekly get-together of researchers and staff working with programming and data, doubles as a help-desk for students with programming problems.",
+    "2017-2019", "Mozilla Open Science Leadership Mentor", "Online", "Mentored programmers and researchers on how to streamline and grow open science projects",
+    "2016-2019", "EMBLR-ABR Head of Nodes member", "UWA, Perth", "EMBL-ABR was an Australian-wide network supporting the technical needs of life sciences researchers",
+     "2016-2017", "COMBINE WA Representative", "UWA, Perth", "As the local COMBINE representative I organise or help organise workshops and regular networking events"
 ) %>% 
-  detailed_entries(when=Year, with=Role, where=Organisation, what=Details)
+  brief_entries(glue::glue("\\textbf{<Role>} \\newline <Details>", .open = "<", .close = ">"), paste0(Year, "\\newline"), .protect = FALSE)
 ```
 
 # Awards and Funding
@@ -88,7 +90,6 @@ classification of crop disease and stress", "GRDC", "With Prof. Mohammed Bennamo
     "2013", "Bayer Grants4Apps", "Bayer", "Grant to cover openSNP running costs",
     "2011-2014", "Two postgraduate scholarships", "UQ, Brisbane", "My PhD was supported by two scholarships from UQ for tuition fees and living costs.",
     "2012", "First place in PLOS/Mendeley Binary Challenge", "openSNP.org", "Won first price in a competition aimed towards the advancement of open science",
-    "2009-2001", "Master IT", "Bond University", "5x Top of class, 3x Vice-Chancellorʼs List for Academic Excellence, 1x IT Award Academic Excellence. Graduated with High Distinction. John Oglethorpe Medal for highest GPA of all IT students graduating.",
 ) %>% 
   detailed_entries(when=Year, with=Role, where=Organisation, what=Details)
 ```
@@ -98,7 +99,7 @@ classification of crop disease and stress", "GRDC", "With Prof. Mohammed Bennamo
 ```{r}
 tribble(
   ~Year, ~Role, ~Organisation, ~Details,
-  "2017-Current", "University teaching", "UWA, Perth", "Organised new MSc Bioinformatics with new unit, SCIE5003 (advanced bioinformatics). Developed content of SCIE5003 and SCIE4002, taught into both units.",
+  "2017-Now", "University teaching", "UWA, Perth", "Organised new MSc Bioinformatics with new unit, SCIE5003 (advanced bioinformatics). Developed content of SCIE5003 and SCIE4002, taught into both units.",
   "2021", "Introduction to tidyverse and purrr", "ASI R Workshop", "Introducing RStudio, project organisation, basic tidyverse, loops, functions, maps",
   "2019", "Introduction to genomics on the command line", "ResBaz, Curtin", "Introduction to the command line, bioinformatics analyses and pipelines, and basic SNP analysis in R.",
   "2019", "Introduction to tidyverse and caret in R", "School of Human Sciences, UWA", "Introduction to R, tidyverse, ggplot2, caret, and basic statistics in R. Taught over two
