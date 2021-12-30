@@ -1,0 +1,113 @@
+---
+name: Philipp
+surname: Bayer
+position: "DECRA Fellow"
+address: "School of Biological Sciences, University of Western Australia"
+www: philipp-bayer.net
+email: "philippbay@gmail.com"
+twitter: philippbayer
+github: philippbayer
+linkedin: philippbayer
+date: "`r format(Sys.time(), '%B %Y')`"
+output: 
+  vitae::awesomecv:
+    page_total: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(vitae)
+library(tidyverse)
+```
+
+# About me
+
+I use computers and large data sets to answer biological questions, especially in crops. I use genomics, pangenomics, k-mer/SNP/QTL-association studies, biostatistics, and interpretable machine learning to find new approaches to breed climate change-ready crops.
+
+# Education
+
+```{r}
+library(tibble)
+tribble(
+  ~ Degree, ~ Year, ~ Institution, ~loc, ~ details,
+  "PhD", "2012 to 2016", "University of Queensland", "Brisbane, Australia", 'Pure bioinformatics PhD in the Edwards group. Developed computational pipeline SkimGBS for cheaper genotyping. Worked extensively with industry (Bayer CropScience, later BASF).', 
+  "Master of IT", "2010 to 2012", "Bond University", "Gold Coast, Australia", "Focused on coding and business IT. 5x Top of class, 3x Vice-Chancellor List of Academic Excellence, 1x IT Award Academic Excellence. Graduated with High Distinction. John Oglethorpe Medal for highest GPA of all IT students graduating.",
+  "Bachelor of Life Sciences", "2006 to 2009", "University of Muenster", "Muenster, Germany", 'Studied general life sciences with a focus on microbiology. In my final project I worked on EST-based differential gene expression in seagrasses.',
+) %>% 
+  brief_entries(glue::glue("\\textbf{<Degree>}, <Institution>, <loc> \\newline <details>", .open = "<", .close = ">"), Year, .protect = FALSE)
+```
+
+# Employment
+
+```{r}
+tribble(
+  ~Year, ~Role, ~Location, ~Institution, ~Details,
+  "2021 to 2023", "DECRA Fellow", "UWA, Perth", "UWA", "My first step towards an independent lab. I am modeling mechanisms of gene loss and birth in crops to learn where new genes come from, and how to avoid loss of agronomically important genes.",
+  "2017 to 2020", "Forrest Fellow", "UWA, Perth", "UWA", "One of three inaugural Forrest Fellows. Worked on genomics of complex plants with Forrest Foundation support.",
+  "2015 to 2017", "Postdoctoral researcher", "UWA, Perth", "UWA", "Researched genetics of complex plants with a focus on canola and wheat in Edwards lab.",
+) %>% 
+    brief_entries(glue::glue("\\textbf{<Role>} \\newline <Details>", .open = "<", .close = ">"), Year, .protect = FALSE)
+```
+
+
+# Current roles
+
+```{r}
+tribble(
+  ~Year, ~Role, ~Organisation, ~Details,
+  "2021", "Member, Scientific Advisory Panel Machine Learning", "ARDC", "Member of the scientific advisory panel for ongoing machine learning projects supported by the ARDC.",
+  "2017", "Hacky Hour Founder", "UWA, Perth", "Founded a weekly get-together of researchers and staff working with programming and data, doubles as a help-desk for students with programming problems.",
+  "2013", "Certified Carpentries Instructor", "Australia", "Certified Software Carpentry and Data Carpentry instructor",
+  "2011", "Co-founder openSNP.org", "Germany/Australia", "Partially wrote and maintain the Ruby on Rails code-base",
+) %>% 
+  brief_entries(glue::glue("\\textbf{<Role>} \\newline <Details>", .open = "<", .close = ">"), Year, .protect = FALSE)
+```
+
+\newpage
+
+# Current awards and funding
+
+```{r}
+tribble(
+  ~Year, ~Role, ~Organisation, ~Details,
+  "2020", "Grant: ARC Discovery Early Career Research Award", "ARC", "Awarded DECRA for 2021-2023. Total funding: AUSD 448,781 and ASUD 418,772 in UWA funding.",
+  "2020", "Grant: Identifying genetic contributors to canola blackleg resistance in the
+presence of environmental effects using Machine Learnin", "GRDC", "With Prof. Dave Edwards, Prof. Mohammed Bennamoun, Prof. Farid Boussaid, Prof. Jacqueline Batley. Total funding: AUSD 309,524.",
+  "2020", "Grant: Machine Learning - Project E: Deep Learning for early detection and
+classification of crop disease and stress", "GRDC", "With Prof. Mohammed Bennamoun, Prof. Farid Boussaid, Prof. Dave Edwards, Dr. Nic Taylor. Total funding: AUSD 344,971.",
+) %>% 
+  brief_entries(glue::glue("\\textbf{<Role>} \\newline <Details>", .open = "<", .close = ">"), paste0(Year, "\\newline"), .protect = FALSE)
+```
+
+# Recent presentations
+```{r}
+tribble(
+  ~Year, ~Role, ~Organisation, ~Details,
+  "2021", "Machine learning in bioinformatics – where are we and whatʼs next?", "CCDM/Curtin University", "Invited talk",
+  "2021", "Machine learning in plant breeding and bioinformatics", "Cinvestav/online", "Invited talk",
+  "2021", "Future-ready crops for a changing climate: the role of bioinformatics", "UWA DVCR Forrest Fellow series", "Invited talk",
+  "2021", "Bioinformatics at scale Q and A", "Pawsey Supercomputing Centre", "Invited",
+  "2021", "Interpretable Machine Learning in Bioinformatics", "ABACBS online seminars", "Invited talk",
+  "2020", "Our machine learning technical stack", "GRDC Tech Seminars", "",
+  "2020", "Predicting Gene Loss in Plants: Lessons Learned from Laptop-Scale Data", "PAG Conference, San Diego", "",
+  "2019", "Eukaryotic pangenomics: where we've been, where we're going", "Bayliss Seminar Series", "Invited",
+  "2019", "Assembling complex plant genomes – things I wish someone would have told
+me earlier", "AGRF Seminar Series", "Invited",
+  "2019", "Helping Biologists Make Sense of Plant Variant and Annotation Data", "PAG Conference, San Diego", "",
+) %>% 
+  brief_entries(glue::glue("\\textbf{<Organisation>} - <Role>", .open = "<", .close = ">"), Year, .protect = FALSE)
+```
+
+# Recent publications
+
+```{r}
+scholar::get_publications("GOL15xQAAAAJ") %>% 
+    dplyr::filter(!is.na(year)) %>%  # filter out weird trash
+    filter(!grepl("Plant and Animal Genome", journal)) %>%  # filter out talks
+    arrange(desc(year)) %>%
+  mutate(author = as.character(map(strsplit(author, split = ","), 1))) %>% # pull out first author only
+  mutate(journal = gsub(x = journal, replacement = 'and', pattern = '&')) %>% 
+  head(15) %>%  # only 2 pages
+  brief_entries(glue::glue("<author> \\textit{et al.}, \\textbf{<title>}, <journal>", .open = "<", .close = ">"), year, .protect = FALSE)
+```
+
