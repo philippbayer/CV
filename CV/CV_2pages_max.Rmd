@@ -18,6 +18,7 @@ output:
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 library(vitae)
 library(tidyverse)
+library(RefManageR)
 ```
 
 # About me
@@ -98,16 +99,23 @@ me earlier", "AGRF Seminar Series", "Invited",
   brief_entries(glue::glue("\\textbf{<Organisation>} - <Role>", .open = "<", .close = ">"), Year, .protect = FALSE)
 ```
 
-# Recent publications
+# Relevant publications
 
 ```{r}
-scholar::get_publications("GOL15xQAAAAJ") %>% 
-    dplyr::filter(!is.na(year)) %>%  # filter out weird trash
-    filter(!grepl("Plant and Animal Genome", journal)) %>%  # filter out talks
-    arrange(desc(year)) %>%
-  mutate(author = as.character(map(strsplit(author, split = ","), 1))) %>% # pull out first author only
-  mutate(journal = gsub(x = journal, replacement = 'and', pattern = '&')) %>% 
-  head(15) %>%  # only 2 pages
-  brief_entries(glue::glue("<author> \\textit{et al.}, \\textbf{<title>}, <journal>", .open = "<", .close = ">"), year, .protect = FALSE)
+# scholar::get_publications("GOL15xQAAAAJ") %>% 
+#     dplyr::filter(!is.na(year)) %>%  # filter out weird trash
+#     filter(!grepl("Plant and Animal Genome", journal)) %>%  # filter out talks
+#     arrange(desc(year)) %>%
+#   mutate(author = as.character(map(strsplit(author, split = ","), 1))) %>% # pull out first author only
+#   mutate(journal = gsub(x = journal, replacement = 'and', pattern = '&')) %>% 
+#   head(15) %>%  # only 2 pages
+#   brief_entries(glue::glue("<author> \\textit{et al.}, \\textbf{<title>}, <journal>", .open = "<", .close = ">"), year, .protect = FALSE)
+d <- as_tibble(ReadBib('../important_papers.bib'))
+d %>% 
+  mutate(author = as.character(map(strsplit(author, split = " and "), 1))) %>% # pull out first author only
+  mutate(author = gsub("^.* ", "", author)) %>% # get author last name
+  rowid_to_column() %>% 
+  arrange(desc(year), author) %>% 
+  brief_entries(glue::glue("\\textbf{<author>} \\textit{et al.} (<year>). <title>. \\textit{<journal>}, \\textit{<volume>}, <number>:<pages>.", .open = "<", .close = ">"), when=rowid, .protect = FALSE)
 ```
 
