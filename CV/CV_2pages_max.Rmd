@@ -3,8 +3,7 @@ name: Philipp
 surname: Bayer
 position: "DECRA Fellow"
 address: "School of Biological Sciences, University of Western Australia"
-www: philipp-bayer.net
-email: "philippbay@gmail.com"
+email: "philipp.bayer@uwa.edu.au"
 twitter: philippbayer
 github: philippbayer
 linkedin: philippbayer
@@ -31,7 +30,7 @@ I use computers and large data sets to answer biological questions, especially i
 library(tibble)
 tribble(
   ~ Degree, ~ Year, ~ Institution, ~loc, ~ details,
-  "PhD", "2012 to 2016", "University of Queensland", "Brisbane, Australia", 'Pure bioinformatics PhD in the Edwards group. Developed computational pipeline SkimGBS for cheaper genotyping. Worked extensively with industry (Bayer CropScience, later BASF).', 
+  "PhD", "2012 to 2016", "University of Queensland", "Brisbane, Australia", 'Applied bioinformatics PhD in the Edwards group. Developed computational pipeline SkimGBS for higher resolution genotyping. Worked extensively with industry (Bayer CropScience, later BASF).', 
   "Master of IT", "2010 to 2012", "Bond University", "Gold Coast, Australia", "Focused on coding and business IT. 5x Top of class, 3x Vice-Chancellor List of Academic Excellence, 1x IT Award Academic Excellence. Graduated with High Distinction. John Oglethorpe Medal for highest GPA of all IT students graduating.",
   "Bachelor of Life Sciences", "2006 to 2009", "University of Muenster", "Muenster, Germany", 'Studied general life sciences with a focus on microbiology. In my final project I worked on EST-based differential gene expression in seagrasses.',
 ) %>% 
@@ -57,6 +56,7 @@ tribble(
 tribble(
   ~Year, ~Role, ~Organisation, ~Details,
   "2021", "Member, Scientific Advisory Panel Machine Learning", "ARDC", "Member of the scientific advisory panel for ongoing machine learning projects supported by the ARDC.",
+    "2021", "Member, GRDC Machine Learning Technical Consultation Group (ML TCG),", "GRDC", "Member of the ML technical consultation group for GRDC-funded ML projects.",
   "2017", "Hacky Hour Founder", "UWA, Perth", "Founded a weekly get-together of researchers and staff working with programming and data, doubles as a help-desk for students with programming problems.",
   "2013", "Certified Carpentries Instructor", "Australia", "Certified Software Carpentry and Data Carpentry instructor",
   "2011", "Co-founder openSNP.org", "Germany/Australia", "Partially wrote and maintain the Ruby on Rails code-base",
@@ -71,7 +71,7 @@ tribble(
 ```{r}
 tribble(
   ~Year, ~Role, ~Organisation, ~Details,
-  "2020", "Grant: ARC Discovery Early Career Research Award", "ARC", "Awarded DECRA for 2021-2023. Total funding: AUSD 448,781 and ASUD 418,772 in UWA funding.",
+  "2020", "Grant: ARC Discovery Early Career Research Award", "ARC", "Awarded DECRA for 2021-2023. Total funding \\$866k which includes a \\$419k contribution from UWA.",
   "2020", "Grant: Identifying genetic contributors to canola blackleg resistance in the
 presence of environmental effects using Machine Learnin", "GRDC", "With Prof. Dave Edwards, Prof. Mohammed Bennamoun, Prof. Farid Boussaid, Prof. Jacqueline Batley. Total funding: AUSD 309,524.",
   "2020", "Grant: Machine Learning - Project E: Deep Learning for early detection and
@@ -102,7 +102,7 @@ me earlier", "AGRF Seminar Series", "Invited",
 # Relevant publications
 
 ```{r}
-# scholar::get_publications("GOL15xQAAAAJ") %>% 
+# scholar::get_publications("GOL15xQAAAAJ") %>%   
 #     dplyr::filter(!is.na(year)) %>%  # filter out weird trash
 #     filter(!grepl("Plant and Animal Genome", journal)) %>%  # filter out talks
 #     arrange(desc(year)) %>%
@@ -114,8 +114,7 @@ d <- as_tibble(ReadBib('../important_papers.bib'))
 d %>% 
   mutate(author = as.character(map(strsplit(author, split = " and "), 1))) %>% # pull out first author only
   mutate(author = gsub("^.* ", "", author)) %>% # get author last name
-  rowid_to_column() %>% 
-  arrange(desc(year), author) %>% 
+  arrange(desc(year), author) %>% rowid_to_column() %>% 
   brief_entries(glue::glue("\\textbf{<author>} \\textit{et al.} (<year>). <title>. \\textit{<journal>}, \\textit{<volume>}, <number>:<pages>.", .open = "<", .close = ">"), when=rowid, .protect = FALSE)
 ```
 
