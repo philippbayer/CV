@@ -1,7 +1,7 @@
 ---
 name: Philipp
 surname: Bayer
-position: "Research Officer"
+position: "Research Officer, AI"
 address: "OceanOmics, Minderoo Foundation"
 email: "pbayer@minderoo.org"
 twitter: philippbayer
@@ -22,7 +22,7 @@ library(RefManageR)
 
 # About me
 
-I use pangenomics, k-mer/SNP/QTL-association studies, biostatistics, and interpretable machine learning to find new approaches to answer biological questions.
+I work at the intersection of genomics, data science, machine learning and AI, high-performance computing, teaching, and environmental science, drawing on more than a decade of experience at the cutting edge of genomics to push what is possible in environmental and DNA data analysis. I have co-supervised more than twenty PhD and MSc students to completion and am now focusing on building a team of AI experts in eDNA. 
 
 # Education
 
@@ -56,6 +56,7 @@ tribble(
 ```{r}
 tribble(
   ~Year, ~Role, ~Organisation, ~Details,
+  "2023", "Founder, WA eDNA meetup", "Minderoo Foundation", "Irregular meetup to connect eDNA practitioners in Western Australia",
   "2022", "Member, Scientific Advisory Panel", "UWA Data Institute", "Oversee and advise on ongoing industry data collaborations across WA.",
   "2022", "Founding member", "UWA Centre for Applied Bioinformatics", "Co-founder and lead of teaching.",
   "2021", "Member, Scientific Advisory Panel Machine Learning", "ARDC", "Advise on ongoing machine learning projects supported by the ARDC.",
@@ -68,24 +69,15 @@ tribble(
 
 \newpage
 
-# Recent awards and funding
-
-```{r}
-tribble(
-  ~Year, ~Role, ~Organisation, ~Details,
-  "2020", "Grant: ARC Discovery Early Career Research Award", "ARC", "Awarded DECRA for 2021-2023. Total funding \\$866k which includes a \\$419k contribution from UWA.",
-  "2020", "Grant: Identifying genetic contributors to canola blackleg resistance in the
-presence of environmental effects using Machine Learnin", "GRDC", "With Prof. Dave Edwards, Prof. Mohammed Bennamoun, Prof. Farid Boussaid, Prof. Jacqueline Batley. Total funding: AUSD 309,524.",
-  "2020", "Grant: Machine Learning - Project E: Deep Learning for early detection and
-classification of crop disease and stress", "GRDC", "With Prof. Mohammed Bennamoun, Prof. Farid Boussaid, Prof. Dave Edwards, Dr. Nic Taylor. Total funding: AUSD 344,971.",
-) %>% 
-  brief_entries(glue::glue("\\textbf{<Role>} \\newline <Details>", .open = "<", .close = ">"), paste0(Year, "\\newline"), .protect = FALSE)
-```
-
 # Recent presentations
 ```{r}
 tribble(
   ~Year, ~Role, ~Organisation, ~Details,
+  "2023", 'Unlocking the power of large language models', 'Perth Machine Learning Group', 'Invited talk',
+  "2023", 'My journey towards data skills', 'WA Data Science Innovation Hub (WADSIH)', 'Invited talk',  
+  "2022", 'Ask us anything - Advice on how to use machine learning to tackle your project', 'ResBaz/Perth Machine Learning Group', 'Panel Q&A',
+  '2022', 'Career Pathways Event - how I got here', 'Telethon Kids Institute', 'Invited talk',
+    "2022", 'Bioinformatics showcase', 'ResBaz', 'Live demo of bioinformatics analysis',
   "2021", "Machine learning in bioinformatics – where are we and whatʼs next?", "CCDM/Curtin University", "Invited talk",
   "2021", "Machine learning in plant breeding and bioinformatics", "Cinvestav/online", "Invited talk",
   "2021", "Future-ready crops for a changing climate: the role of bioinformatics", "UWA DVCR Forrest Fellow series", "Invited talk",
@@ -101,10 +93,25 @@ me earlier", "AGRF Seminar Series", "Invited",
   brief_entries(glue::glue("\\textbf{<Organisation>} - <Role>", .open = "<", .close = ">"), Year, .protect = FALSE)
 ```
 
+
+# Academic funding
+
+```{r}
+tribble(
+  ~Year, ~Role, ~Organisation, ~Details,
+  "2020", "Grant: ARC Discovery Early Career Research Award", "ARC", "Awarded DECRA for 2021-2023. Total funding \\$866k which includes a \\$419k contribution from UWA.",
+  "2020", "Grant: Identifying genetic contributors to canola blackleg resistance in the
+presence of environmental effects using Machine Learnin", "GRDC", "With Prof. Dave Edwards, Prof. Mohammed Bennamoun, Prof. Farid Boussaid, Prof. Jacqueline Batley. Total funding: AUSD 309,524.",
+  "2020", "Grant: Machine Learning - Project E: Deep Learning for early detection and
+classification of crop disease and stress", "GRDC", "With Prof. Mohammed Bennamoun, Prof. Farid Boussaid, Prof. Dave Edwards, Dr. Nic Taylor. Total funding: AUSD 344,971.",
+) %>% 
+  brief_entries(glue::glue("\\textbf{<Role>} \\newline <Details>", .open = "<", .close = ">"), paste0(Year, "\\newline"), .protect = FALSE)
+```
+
 # Relevant publications
 
 ```{r}
-d <- as_tibble(ReadBib('important_papers.bib'))
+d <- as_tibble(ReadBib('CV/important_papers.bib'))
 d %>% 
   mutate(author = as.character(map(strsplit(author, split = " and "), 1))) %>% # pull out first author only
   mutate(author = gsub("^.* ", "", author)) %>% # get author last name
