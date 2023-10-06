@@ -124,6 +124,12 @@ days.",
 ```{r}
 tribble(
   ~Year, ~Role, ~Organisation, ~Details,
+  "2023", 'My Journey to a Career in Machine Learning; All My Mistakes You Will Hopefully Avoid', "WADSIH Data and AI for Business Conference", 'Invited talk',
+  "2023", 'Unlocking the power of large language models', 'Perth Machine Learning Group', 'Invited talk',
+  "2023", 'My journey towards data skills', 'WA Data Science Innovation Hub (WADSIH)', 'Invited talk',  
+  "2022", 'Ask us anything - Advice on how to use machine learning to tackle your project', 'ResBaz/Perth Machine Learning Group', 'Panel Q&A',
+  '2022', 'Career Pathways Event - how I got here', 'Telethon Kids Institute', 'Invited talk',
+  "2022", 'Bioinformatics showcase', 'ResBaz', 'Live demo of bioinformatics analysis',
   "2021", "Machine learning in bioinformatics – where are we and whatʼs next?", "CCDM/Curtin University", "Invited talk",
   "2021", "Machine learning in plant breeding and bioinformatics", "Cinvestav/online", "Invited talk",
   "2021", "Future-ready crops for a changing climate: the role of bioinformatics", "UWA DVCR Forrest Fellow series", "Invited talk",
