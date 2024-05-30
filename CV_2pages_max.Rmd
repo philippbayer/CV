@@ -79,6 +79,9 @@ I have given a total of 40 public presentations.
 ```{r}
 tribble(
   ~Year, ~Role, ~Organisation, ~Details,
+  "2024", "What we learned using LLMs in environmental DNA", 'ACS WA conference', 'Invited talk'm
+  "2024", 'How we can use social media to protect the oceans', 'TEDx Kings Park', 'TEDx!',
+  "2024", 'Towards better standards for eDNA taxonomic classification', 'Curtin University', 'Invited talk',
   "2023", 'My Journey to a Career in Machine Learning; All My Mistakes You Will Hopefully Avoid', "WADSIH Data and AI for Business Conference", 'Invited talk',
   "2023", 'Unlocking the power of large language models', 'Perth Machine Learning Group', 'Invited talk',
   "2023", 'My journey towards data skills', 'WA Data Science Innovation Hub (WADSIH)', 'Invited talk',  
